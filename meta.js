@@ -42,7 +42,8 @@ module.exports = {
     },
     "router": {
       "type": "confirm",
-      "message": "Install vue-router?"
+      "message": "Install vue-router?",
+       "default": false
     },
     "lint": {
       "type": "confirm",
@@ -54,6 +55,11 @@ module.exports = {
       "message": "Pick an ESLint preset",
       "choices": [
         {
+          "name": "corbinu",
+          "value": "none",
+          "short": "none"
+        },
+        {
           "name": "Standard (https://github.com/feross/standard)",
           "value": "standard",
           "short": "Standard"
@@ -62,11 +68,6 @@ module.exports = {
           "name": "Airbnb (https://github.com/airbnb/javascript)",
           "value": "airbnb",
           "short": "Airbnb"
-        },
-        {
-          "name": "none (configure it yourself)",
-          "value": "none",
-          "short": "none"
         }
       ]
     },
@@ -76,7 +77,8 @@ module.exports = {
     },
     "e2e": {
       "type": "confirm",
-      "message": "Setup e2e tests with Nightwatch?"
+      "message": "Setup e2e tests with Nightwatch?",
+       "default": false
     }
   },
   "filters": {

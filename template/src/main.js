@@ -1,12 +1,16 @@
-{{#if_eq build "standalone"}}
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-{{/if_eq}}
+require("es6-promise").polyfill();
+/* eslint-disable import/first */
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import axios from "axios";
+import VueAxios from "vue-axios";
+
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#router}}
 import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/router}}
+/* eslint-enable import/first */
+
+Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 

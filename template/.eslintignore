@@ -1,2 +1,6 @@
 build/*.js
 config/*.js
+static/
+{{#unit}}
+test/unit/coverage
+{{/unit}}

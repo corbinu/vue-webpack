@@ -5,7 +5,7 @@
 
 var webpackConfig = require('../../build/webpack.test.conf'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-module.exports = function (config) {
+module.exports = (config) => {
   config.set({
     // to run in additional browsers:
     // 1. install corresponding karma launcher

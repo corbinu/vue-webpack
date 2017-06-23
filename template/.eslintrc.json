@@ -1,0 +1,9 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:@corbinu/corbinu/base",
+    "plugin:@corbinu/corbinu/browser",
+    "plugin:@corbinu/corbinu/relax",
+    "plugin:@corbinu/corbinu/vue"
+  ]
+}
