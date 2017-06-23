@@ -21,7 +21,7 @@
     "vue-axios": "^2.0.2"
   },
   "devDependencies": {
-    "@corbinu/eslint-plugin-corbinu": "3.0.0-beta.3",
+    "@corbinu/eslint-plugin-corbinu": "^3.0.0",
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.22.1",
     "babel-loader": "^7.0.0",
