@@ -6,9 +6,6 @@ An overview of the tools used by this boilerplate for unit testing:
 - [karma-webpack](https://github.com/webpack/karma-webpack): the plugin for Karma that bundles our tests using Webpack.
 - [Mocha](https://mochajs.org/): the test framework that we write test specs with.
 - [Chai](http://chaijs.com/): test assertion library that provides better assertion syntax.
-- [Sinon](http://sinonjs.org/): test utility library that provides spies, stubs and mocks.
-
-Chai and Sinon are integrated using [karma-sinon-chai](https://github.com/kmees/karma-sinon-chai), so all Chai interfaces (`should`, `expect`, `assert`) and `sinon` are globally available in test files.
 
 And the files:
 
