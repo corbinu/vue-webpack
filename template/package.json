@@ -22,15 +22,14 @@
   },
   "devDependencies": {
     "@corbinu/eslint-plugin-corbinu": "^3.2.0",
-    "autoprefixer": "^7.1.1",
+    "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
-    "babel-loader": "^7.0.0",
-    "babel-plugin-istanbul": "^4.1.1",
+    "babel-loader": "^7.1.1",
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-env": "^1.3.2",
     "babel-preset-stage-2": "^6.22.0",
     "babel-register": "^6.22.0",
-    "chalk": "^1.1.3",
+    "chalk": "^2.0.1",
     "connect-history-api-fallback": "^1.3.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
@@ -42,11 +41,7 @@
     {{/lint}}
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.1",
-<<<<<<< HEAD
     "extract-text-webpack-plugin": "3.0.0",
-=======
-    "extract-text-webpack-plugin": "3.0.0-rc.1",
->>>>>>> 3c187b958bf772f96c6387c0365dc6e5d542d103
     "file-loader": "^0.11.1",
     "friendly-errors-webpack-plugin": "^1.1.3",
     "html-webpack-plugin": "^2.28.0",
