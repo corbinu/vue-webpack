@@ -68,16 +68,6 @@ module.exports = {
           "name": "corbinu",
           "value": "none",
           "short": "none"
-        },
-        {
-          "name": "Standard (https://github.com/feross/standard)",
-          "value": "standard",
-          "short": "Standard"
-        },
-        {
-          "name": "Airbnb (https://github.com/airbnb/javascript)",
-          "value": "airbnb",
-          "short": "Airbnb"
         }
       ]
     },
@@ -94,11 +84,6 @@ module.exports = {
           name: 'Jest',
           value: 'jest',
           short: 'jest',
-        },
-        {
-          name: 'Karma and Mocha',
-          value: 'karma',
-          short: 'karma',
         },
         {
           name: 'none (configure it yourself)',
@@ -139,12 +124,8 @@ module.exports = {
     '.eslintrc.js': 'lint',
     '.eslintignore': 'lint',
     'config/test.env.js': 'unit || e2e',
-    'build/webpack.test.conf.js': "unit && runner === 'karma'",
     'test/unit/**/*': 'unit',
-    'test/unit/index.js': "unit && runner === 'karma'",
     'test/unit/jest.conf.js': "unit && runner === 'jest'",
-    'test/unit/karma.conf.js': "unit && runner === 'karma'",
-    'test/unit/specs/index.js': "unit && runner === 'karma'",
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',

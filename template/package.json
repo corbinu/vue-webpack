@@ -7,12 +7,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    {{#if_eq runner "jest"}}
     "unit": "jest --config test/unit/jest.conf.js --coverage",
-    {{/if_eq}}
-    {{#if_eq runner "karma"}}
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
-    {{/if_eq}}
     {{#e2e}}
     "e2e": "node test/e2e/runner.js",
     {{/e2e}}
@@ -24,9 +19,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.17.0",
-    "es6-promise": "^4.1.0",
-    "vue": "^2.5.2",
+    "axios": "^0.17.1",
+    "es6-promise": "^4.2.2",
+    "vue": "^2.5.13",
     "vue-axios": "^2.0.2"{{#router}},
     "vue-router": "^3.0.1"{{/router}}
   },
@@ -36,26 +31,12 @@
     "eslint-loader": "^1.7.1",
     "eslint": "^4.13.1",
     {{#if_eq runner "jest"}}
-    "babel-jest": "^21.0.2",
+    "babel-jest": "^22.0.4",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "jest": "^21.2.0",
+    "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
     "vue-jest": "^1.0.2",
-    {{/if_eq}}
-    {{#if_eq runner "karma"}}
-    "cross-env": "^5.0.1",
-    "karma": "^1.4.1",
-    "karma-coverage": "^1.1.1",
-    "karma-mocha": "^1.3.0",
-    "karma-chrome-launcher": "^2.1.1",
-    "karma-sourcemap-loader": "^0.3.7",
-    "karma-spec-reporter": "0.0.31",
-    "karma-webpack": "^2.0.2",
-    "mocha": "^3.2.0",
-    "chai": "^4.1.2",
-    "inject-loader": "^3.0.0",
-    "babel-plugin-istanbul": "^4.1.1",
     {{/if_eq}}
     {{#e2e}}
     "babel-register": "^6.22.0",
@@ -86,11 +67,12 @@
     "postcss-loader": "^2.0.8",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
+    "typescript": "~2.6.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
     "rimraf": "^2.6.0",
     "uglifyjs-webpack-plugin": "^1.1.1",
-    "url-loader": "^0.5.8",
+    "url-loader": "^0.6.2",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.2",
