@@ -1,41 +1,60 @@
-'use strict'
-require('./check-versions')()
+"use strict";
 
-process.env.NODE_ENV = 'production'
+process.env.NODE_ENV = "production";
 
-const ora = require('ora')
-const rm = require('rimraf')
-const path = require('path')
-const chalk = require('chalk')
-const webpack = require('webpack')
-const config = require('../config')
-const webpackConfig = require('./webpack.prod.conf')
+const {
+    promisify
+} = require("util");
+const path = require("path");
 
-const spinner = ora('building for production...')
-spinner.start()
+const rm = promisify(require("rimraf"));
+const webpack = promisify(require("webpack"));
+const ora = require("ora");
+const chalk = require("chalk");
 
-rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
-  if (err) throw err
-  webpack(webpackConfig, (err, stats) => {
-    spinner.stop()
-    if (err) throw err
-    process.stdout.write(stats.toString({
-      colors: true,
-      modules: false,
-      children: false, // if you are using ts-loader, setting this to true will make tyescript errors show up during build
-      chunks: false,
-      chunkModules: false
-    }) + '\n\n')
+const config = require("../config");
 
-    if (stats.hasErrors()) {
-      console.log(chalk.red('  Build failed with errors.\n'))
-      process.exit(1)
-    }
+const webpackConfig = require("./webpack.prod.conf");
 
-    console.log(chalk.cyan('  Build complete.\n'))
-    console.log(chalk.yellow(
-      '  Tip: built files are meant to be served over an HTTP server.\n' +
-      '  Opening index.html over file:// won\'t work.\n'
-    ))
-  })
-})
+const spinner = ora("building for production...");
+
+async function build() {
+
+    spinner.start();
+
+    await rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory));
+
+    const stats = await webpack(webpackConfig);
+
+    spinner.stop();
+
+    process.stdout.write(`${stats.toString({
+        "colors": true,
+        "modules": false,
+        "children": true,
+        "chunks": false,
+        "chunkModules": false
+    })}
+
+`);
+
+    if (stats.hasErrors()) throw new Error("Build failed");
+
+    console.log(chalk `  {cyan Build complete.}
+
+  {yellow Tip: built files are meant to be served over an HTTP server.
+  Opening index.html over file:// won't work.}
+`);
+}
+
+/* eslint-disable promise/prefer-await-to-callbacks */
+build().catch((err) => {
+    spinner.stop();
+
+    console.log(chalk `  {red Build failed with errors.}
+`);
+
+    console.log(err);
+
+    process.exit(1);
+});
