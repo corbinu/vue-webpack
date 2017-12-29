@@ -3,7 +3,6 @@ const fs = require('fs')
 const {
   sortDependencies,
   installDependencies,
-  runLintFix,
   printMessage,
 } = require('./utils')
 
@@ -55,46 +54,13 @@ module.exports = {
       "message": "Install vue-router?",
        "default": false
     },
-    lint: {
-      type: 'confirm',
-      message: 'Use ESLint to lint your code?',
-    },
-    lintConfig: {
-      when: 'lint',
-      type: 'list',
-      message: 'Pick an ESLint preset',
-      choices: [
-        {
-          "name": "corbinu",
-          "value": "none",
-          "short": "none"
-        }
-      ]
-    },
     unit: {
       type: 'confirm',
       message: 'Set up unit tests',
     },
-    runner: {
-      when: 'unit',
-      type: 'list',
-      message: 'Pick a test runner',
-      choices: [
-        {
-          name: 'Jest',
-          value: 'jest',
-          short: 'jest',
-        },
-        {
-          name: 'none (configure it yourself)',
-          value: 'noTest',
-          short: 'noTest',
-        },
-      ],
-    },
     e2e: {
       type: 'confirm',
-      message: 'Setup e2e tests with Nightwatch?',
+      message: 'Setup e2e tests',
       "default": false
     },
     autoInstall: {
@@ -108,11 +74,6 @@ module.exports = {
           short: 'npm',
         },
         {
-          name: 'Yes, use Yarn',
-          value: 'yarn',
-          short: 'yarn',
-        },
-        {
           name: 'No, I will handle that myself',
           value: false,
           short: 'no',
@@ -121,12 +82,10 @@ module.exports = {
     },
   },
   filters: {
-    '.eslintrc.js': 'lint',
-    '.eslintignore': 'lint',
     'config/test.env.js': 'unit || e2e',
     'test/unit/**/*': 'unit',
-    'test/unit/jest.conf.js': "unit && runner === 'jest'",
-    'test/unit/setup.js': "unit && runner === 'jest'",
+    'test/unit/jest.conf.js': "unit",
+    'test/unit/setup.js': "unit",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
   },
@@ -138,10 +97,7 @@ module.exports = {
     const cwd = path.join(process.cwd(), data.inPlace ? '' : data.destDirName)
 
     if (data.autoInstall) {
-      installDependencies(cwd, data.autoInstall, green)
-        .then(() => {
-          return runLintFix(cwd, data, green)
-        })
+      installDependencies(cwd, green)
         .then(() => {
           printMessage(data, green)
         })

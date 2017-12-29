@@ -31,7 +31,7 @@
     "@babel/plugin-transform-runtime": "^7.0.0-beta.36",
     "@babel/preset-env": "^7.0.0-beta.36",
     "@babel/preset-stage-3": "^7.0.0-beta.36",
-    "@corbinu/eslint-plugin-corbinu": "^3.2.0",
+    "@corbinu/eslint-plugin-corbinu": "^3.11.3",
     "@types/es6-promise": "^0.0.33",
     "autoprefixer": "^7.2.3",
     "babel-loader": "^8.0.0-beta.0",
@@ -43,14 +43,14 @@
     "file-loader": "^1.1.6",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
-    {{#if_eq runner "jest"}}
-    "@types/jest": "^21.1.10",
+    {{#unit}}
+    "@types/jest": "^22.0.0",
     "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
     "ts-jest": "^22.0.0",
-    "vue-jest": "^1.0.2",
+    "vue-jest": "^1.4.0",
     "vue-test-utils": "^1.0.0-beta.9",
-    {{/if_eq}}
+    {{/unit}}
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.3.0",
     "portfinder": "^1.0.13",

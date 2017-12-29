@@ -27,7 +27,6 @@ if (process.env.NODE_ENV === "testing") {
 } else {
     env = require("../config/prod.env");
     indexFilename = config.build.index;
-
 }
 {{/if_or}}
 
@@ -43,12 +42,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     "plugins": [
         // http://vuejs.github.io/vue-loader/en/workflow/production.html
         new webpack.DefinePlugin({
-            {{#if_or unit e2e}}
-            "process.env": env
-            {{/if_or}}
-            {{#unless unit}}{{#unless e2e}}
-            "process.env": require("../config/prod.env")
-            {{/unless}}{{/unless}}
+            {{#if_or unit e2e}}"process.env": env{{/if_or}}{{#unless unit}}{{#unless e2e}}"process.env": require("../config/prod.env"){{/unless}}{{/unless}}
         }),
         new UglifyJsPlugin({
             "uglifyOptions": {
@@ -82,12 +76,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         // you can customize output by editing /index.html
         // see https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
-            {{#if_or unit e2e}}
-            "filename": indexFilename,
-            {{/if_or}}
-            {{#unless unit}}{{#unless e2e}}
-            "filename": config.build.index,
-            {{/unless}}{{/unless}}
+            {{#if_or unit e2e}}"filename": indexFilename,{{/if_or}}{{#unless unit}}{{#unless e2e}}"filename": config.build.index,{{/unless}}{{/unless}}
             "template": "index.html",
             "inject": true,
             "minify": {

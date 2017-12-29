@@ -27,38 +27,13 @@ exports.sortDependencies = function sortDependencies(data) {
  */
 exports.installDependencies = function installDependencies(
   cwd,
-  executable = 'npm',
   color
 ) {
   console.log(`\n\n# ${color('Installing project dependencies ...')}`)
   console.log('# ========================\n')
-  return runCommand(executable, ['install'], {
+  return runCommand('npm', ['install'], {
     cwd,
   })
-}
-
-/**
- * Runs `npm run lint -- --fix` in the project directory
- * @param {string} cwd Path of the created project directory
- * @param {object} data Data from questionnaire
- */
-exports.runLintFix = function runLintFix(cwd, data, color) {
-  if (data.lint && lintStyles.indexOf(data.lintConfig) !== -1) {
-    console.log(
-      `\n\n${color(
-        'Running eslint --fix to comply with chosen preset rules...'
-      )}`
-    )
-    console.log('# ========================\n')
-    const args =
-      data.autoInstall === 'npm'
-        ? ['run', 'lint', '--', '--fix']
-        : ['run', 'lint', '--fix']
-    return runCommand(data.autoInstall, args, {
-      cwd,
-    })
-  }
-  return Promise.resolve()
 }
 
 /**
@@ -77,7 +52,7 @@ To get started:
       data
     )}${lintMsg(data)}npm run dev`
   )}
-  
+
 Documentation can be found at https://vuejs-templates.github.io/webpack
 `
   console.log(message)
@@ -92,17 +67,17 @@ function lintMsg(data) {
   return !data.autoInstall &&
     data.lint &&
     lintStyles.indexOf(data.lintConfig) !== -1
-    ? 'npm run lint -- --fix (or for yarn: yarn run lint --fix)\n  '
+    ? 'npm run lint:fix\n  '
     : ''
 }
 
 /**
- * If the user will have to run `npm install` or `yarn` themselves, it returns a string
+ * If the user will have to run `npm install` themselves, it returns a string
  * containing the instruction for this step.
  * @param {Object} data Data from the questionnaire
  */
 function installMsg(data) {
-  return !data.autoInstall ? 'npm install (or if using yarn: yarn)\n  ' : ''
+  return !data.autoInstall ? 'npm install\n  ' : ''
 }
 
 /**

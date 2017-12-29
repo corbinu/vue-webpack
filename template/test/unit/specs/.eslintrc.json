@@ -1,0 +1,6 @@
+{
+    "extends": [
+        "plugin:@corbinu/corbinu/typescript",
+        "plugin:@corbinu/corbinu/jest"
+    ]
+}

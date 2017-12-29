@@ -1,0 +1,9 @@
+{
+    "extends": [
+        "plugin:@corbinu/corbinu/typescript"
+    ],
+    "globals": {
+        "fixture": true,
+        "test": true
+    }
+}

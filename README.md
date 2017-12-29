@@ -37,7 +37,6 @@ The development server will run on port 8080 by default. If that port is already
   - Webpack + `vue-loader` for single file Vue components.
   - State preserving hot-reload
   - State preserving compilation error overlay
-  - Lint-on-save with ESLint
   - Source maps
 
 - `npm run build`: Production ready build.

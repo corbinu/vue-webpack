@@ -1,0 +1,13 @@
+{
+    "plugins": [
+        "@corbinu/corbinu"
+    ],
+
+    "extends": [
+        "plugin:@corbinu/corbinu/base",
+        "plugin:@corbinu/corbinu/node",
+        "plugin:@corbinu/corbinu/dev",
+        "plugin:@corbinu/corbinu/common",
+        "plugin:@corbinu/corbinu/relax"
+    ]
+}
