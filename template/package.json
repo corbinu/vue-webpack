@@ -45,7 +45,6 @@
     "html-webpack-plugin": "^2.30.1",
     {{#unit}}
     "@types/jest": "^22.0.0",
-    "babel-7-jest": "^21.3.2",
     "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",
     "ts-jest": "^22.0.0",
