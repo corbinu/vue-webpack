@@ -13,7 +13,7 @@
 import Vue from "vue";
 
 {{#unless router}}
-import HelloWorld from './components/HelloWorld'
+import HelloWorld from "./components/HelloWorld";
 
 {{/unless}}
 export default Vue.extend({
