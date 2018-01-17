@@ -74,7 +74,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     ]
 });
 
-module.exports = async() => {
+module.exports = async () => {
     portfinder.basePort = process.env.PORT || config.dev.port;
 
     const port = await promisify(portfinder.getPort)();
