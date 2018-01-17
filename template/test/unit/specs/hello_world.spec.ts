@@ -1,6 +1,6 @@
 import { mount } from "vue-test-utils";
 
-import HelloWorld from "../../../src/components/HelloWorld";
+import HelloWorld from "../../../src/components/HelloWorld.vue";
 
 describe("HelloWorld.vue", () => {
     it("should render correct contents", () => {

@@ -36,8 +36,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     "devtool": config.build.devtool,
     "output": {
         "path": config.build.assetsRoot,
-        "filename": assetsPath("js/test.[name].js"),
-        "chunkFilename": assetsPath("js/test.[id].js")
+        "filename": assetsPath("js/[name].app.js"),
+        "chunkFilename": assetsPath("js/[name].[id].js")
     },
     "plugins": [
         // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -89,7 +89,7 @@ const webpackConfig = merge(baseWebpackConfig, {
             // necessary to consistently work with multiple chunks via CommonsChunkPlugin
             "chunksSortMode": "dependency"
         }),
-        // keep module.id stable when vender modules does not change
+        // keep module.id stable when vendor modules does not change
         new webpack.HashedModuleIdsPlugin(),
         // enable scope hoisting
         new webpack.optimize.ModuleConcatenationPlugin(),

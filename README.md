@@ -1,3 +1,5 @@
+Forked version merged upstream up to Commits on Jan 9, 2018 - Revert "fix bad alias (fix #1239)"
+
 # vue-webpack-boilerplate
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.

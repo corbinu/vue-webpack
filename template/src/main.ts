@@ -3,14 +3,15 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 {{/if_eq}}
 /* eslint-disable import/no-unassigned-import */
-import "es6-promise/auto";
+import "@babel/polyfill";
 /* eslint-enable import/no-unassigned-import */
+
 
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
 
-import App from "./App";
+import App from "./App.vue";
 {{#router}}
 import router from "./router";
 {{/router}}

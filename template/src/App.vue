@@ -13,11 +13,11 @@
 import Vue from "vue";
 
 {{#unless router}}
-import HelloWorld from "./components/HelloWorld";
+import HelloWorld from "./components/HelloWorld.vue";
 
 {{/unless}}
 export default Vue.extend({
-    "name": "app"{{#router}}{{else}},
+    "name": "App"{{#router}}{{else}},
     "components": {
         HelloWorld
     }{{/router}}

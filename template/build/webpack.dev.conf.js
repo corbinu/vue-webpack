@@ -3,9 +3,11 @@
 const {
     promisify
 } = require("util");
+const path = require("path");
 
 const webpack = require("webpack");
 const merge = require("webpack-merge");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
 const portfinder = require("portfinder");
@@ -20,14 +22,19 @@ const {
 const PORT = process.env.PORT && Number(process.env.PORT);
 
 const devWebpackConfig = merge(baseWebpackConfig, {
-    // cheap-module-eval-source-map is faster for development
     "devtool": config.dev.devtool,
 
     // these devServer options should be customized in /config/index.js
     "devServer": {
         "clientLogLevel": "warning",
-        "historyApiFallback": true,
+        "historyApiFallback": {
+            "rewrites": [{
+                "from": /.*/,
+                "to": path.posix.join(config.dev.assetsPublicPath, "index.html")
+            }]
+        },
         "hot": true,
+        "contentBase": false,
         "compress": true,
         "host": HOST || config.dev.host,
         "port": PORT || config.dev.port,
@@ -58,10 +65,16 @@ const devWebpackConfig = merge(baseWebpackConfig, {
             "template": "index.html",
             "inject": true
         }),
+        // copy custom static assets
+        new CopyWebpackPlugin([{
+            "from": path.resolve(__dirname, "../static"),
+            "to": config.dev.assetsSubDirectory,
+            "ignore": [".*"]
+        }])
     ]
 });
 
-module.exports = async () => {
+module.exports = async() => {
     portfinder.basePort = process.env.PORT || config.dev.port;
 
     const port = await promisify(portfinder.getPort)();
