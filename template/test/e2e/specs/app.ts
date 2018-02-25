@@ -1,7 +1,7 @@
 import { Selector } from "testcafe";
 //import VueSelector from "testcafe-vue-selectors";
 
-import * as config from "../testcafe.conf";
+import config from "../testcafe.conf";
 
 fixture`default e2e tests`.page(config.devServerURL);
 

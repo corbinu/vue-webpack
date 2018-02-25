@@ -15,17 +15,17 @@
         "forceConsistentCasingInFileNames": true,
         "emitDecoratorMetadata": true,
         "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true,
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "listFiles": true,
         "sourceMap": true,
+        "esModuleInterop": true,
         "outDir": "dist",
         "module": "es2015",
         "allowJs": true
     },
     "include": [
         "src/**/*",
-        "modules.d.ts"
+        "declarations.d.ts"
     ]
 }
