@@ -22,7 +22,7 @@ module.exports = {
     ],{{/e2e}}
     "snapshotSerializers": ["jest-serializer-vue"],
     "setupFiles": ["<rootDir>/test/unit/setup"],
-    "mapCoverage": true,
+    "collectCoverage": true,
     "coverageDirectory": "<rootDir>/test/unit/coverage",
     "collectCoverageFrom": [
         "src/**/*.{ts,js,vue}",

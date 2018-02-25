@@ -22,6 +22,7 @@ const {
 const PORT = process.env.PORT && Number(process.env.PORT);
 
 const devWebpackConfig = merge(baseWebpackConfig, {
+    "mode": "development",
     "devtool": config.dev.devtool,
 
     // these devServer options should be customized in /config/index.js

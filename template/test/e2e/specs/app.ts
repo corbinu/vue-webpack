@@ -1,11 +1,11 @@
 import { Selector } from "testcafe";
 //import VueSelector from "testcafe-vue-selectors";
 
-import config from "../testcafe.conf";
+import * as config from "../testcafe.conf";
 
 fixture`default e2e tests`.page(config.devServerURL);
 
-test("Check app welcome", async t => {
+test("Check app welcome", async (t) => {
     await Selector("#app");
 
     const helloExists = await Selector(".hello").exists;
