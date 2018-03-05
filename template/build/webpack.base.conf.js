@@ -16,6 +16,7 @@ let publicPath = config.dev.assetsPublicPath;
 if (isProduction) publicPath = config.build.assetsPublicPath;
 
 module.exports = {
+    "mode": "production",
     "context": path.resolve(__dirname, "../"),
     "entry": {
         "app": "./src/main.ts"
